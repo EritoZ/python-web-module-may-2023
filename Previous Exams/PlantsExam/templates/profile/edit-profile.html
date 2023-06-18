@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div id="box">
+
+    <!-- edit profile form -->
+    <section id="register-page" class="content auth">
+        <form id="register" method="post" action="{% url 'profile edit' %}">
+            {% csrf_token %}
+            <div class="container">
+
+                <h1>Create Profile</h1>
+
+                <label for="username">Username:</label>
+                {{ form_errors.username }}
+                {{ form.username }}
+
+                <label for="first_name">First Name:</label>
+                {{ form_errors.first_name }}
+                {{ form.first_name }}
+
+                <label for="last_name" >Last Name:</label>
+                {{ form_errors.last_name }}
+                {{ form.last_name }}
+
+                <label for="profile_picture">Profile Picture:</label>
+                {{ form_errors.profile_picture }}
+                {{ form.profile_picture }}
+
+                <input class="btn" type="submit" value="Edit Profile">
+            </div>
+        </form>
+    </section>
+</div>
+{% endblock %}

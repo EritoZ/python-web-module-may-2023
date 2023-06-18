@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <!-- create profile form -->
+    <section id="register-page" class="content auth">
+
+        <form id="register" method="post" action="{% url 'profile create' %}">
+            {% csrf_token %}
+            <div class="container">
+
+                <h1>Create Profile</h1>
+
+                <label for="username">Username:</label>
+                {{ form_errors.username }}
+                {{ form.username }}
+
+                <label for="first_name">First Name:</label>
+                {{ form_errors.first_name }}
+                {{ form.first_name }}
+
+                <label for="last_name" >Last Name:</label>
+                {{ form_errors.last_name }}
+                {{ form.last_name }}
+
+                <input class="btn submit" type="submit" value="Create Profile">
+            </div>
+        </form>
+    </section>
+
+{% endblock %}
