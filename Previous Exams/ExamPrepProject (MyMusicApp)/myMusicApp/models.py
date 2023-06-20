@@ -52,7 +52,8 @@ class AlbumModel(models.Model):
     )
 
     description = models.TextField(
-        blank=True
+        blank=True,
+        null=True
     )
 
     image_url = models.URLField()
