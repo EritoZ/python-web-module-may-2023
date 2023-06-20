@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section id="create-page" class="auth">
+    <!-- create car form -->
+    <form id="create" method="post" action="{% url 'car create' %}">
+        {% csrf_token %}
+        <div class="container">
+            <h1 class="form-create-headline">Create Car</h1>
+            <label for="type">Type:</label>
+            {{ field_errors.type }}
+            {{ form.type }}
+
+            <label for="model">Model:</label>
+            {{ field_errors.model }}
+            {{ form.model }}
+
+            <label for="year">Year:</label>
+            {{ field_errors.year }}
+            {{ form.year }}
+
+            <label for="image_url">Image URL:</label>
+            {{ field_errors.image_url }}
+            {{ form.image_url }}
+
+            <label for="price">Price:</label>
+            {{ field_errors.price }}
+            {{ form.price }}
+
+            <input class="btn" type="submit" value="Create Car">
+        </div>
+    </form>
+</section>
+{% endblock %}
