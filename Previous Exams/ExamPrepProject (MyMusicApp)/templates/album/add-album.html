@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!--Create Page-->
+<section class="createPage">
+
+    <form action="{% url 'album add' %}" method="post">
+        {% csrf_token %}
+        <fieldset>
+            <legend>Add Album</legend>
+            <div class="container">
+
+                <!-- Form for Adding Album -->
+                <label for="name">Album Name:</label>
+                {{ errors.album_name }}
+                {{ form.album_name }}
+
+                <label for="artist">Artist:</label>
+                {{ errors.artist }}
+                {{ form.artist }}
+
+                <label for="genre">Genre:</label>
+                {{ errors.genre }}
+                {{ form.genre }}
+
+                <label for="description">Description:</label>
+                {{ errors.description }}
+                {{ form.description }}
+
+                <label for="imgUrl">Image URL:</label>
+                {{ errors.image_url }}
+                {{ form.image_url }}
+
+                <label for="price">Price:</label>
+                {{ errors.price }}
+                {{ form.price }}
+
+                <!-- Button for Adding Album -->
+                <button class="add-album" type="submit">Add New Album</button>
+            </div>
+        </fieldset>
+    </form>
+</section>
+{% endblock %}
