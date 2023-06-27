@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+        <!-- Delete Fruit Form -->
+        <section id="edit">
+            
+                <div class="form">
+                    <h2>Delete Fruit</h2>
+                    <form class="edit-form" action="{% url 'fruit delete' fruit_id %}" method="post">
+                    {% csrf_token %}
+
+                    <label for="name">Name:</label>
+                    {{ errors.name }}
+                    {{ form.name }}
+
+                    <label for="Fruit-image">Image URL:</label>
+                    {{ errors.image_url }}
+                    {{ form.image_url }}
+
+                    <label for="fruit-description">Description:</label>
+                    {{ errors.description }}
+                    {{ form.description }}
+
+                        <button type="submit">Delete</button>
+                    </form>
+                </div>
+           
+        </section>
+
+{% endblock %}

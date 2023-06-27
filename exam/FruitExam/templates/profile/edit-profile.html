@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+        <!-- Edit Profile Form -->
+
+        <section id="register">
+            <div class="form">
+                <h2>Edit Profile</h2>
+                <form class="register-form" method="post" action="{% url 'profile edit' %}">
+                    {% csrf_token %}
+                    <label for="first-name">First Name:</label>
+                    {{ errors.first_name }}
+                    {{ form.first_name }}
+
+                    <label for="last-name">Last Name:</label>
+                    {{ errors.last_name }}
+                    {{ form.last_name }}
+
+                    <label for="url">Image URL:</label>
+                    {{ errors.image_url }}
+                    {{ form.image_url }}
+
+                    <label for="age">Age:</label>
+                    {{ errors.age }}
+                    {{ form.age }}
+
+                    <button type="submit">Edit</button>
+
+                </form>
+            </div>
+        </section>
+{% endblock %}
